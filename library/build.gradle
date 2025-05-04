@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
@@ -9,7 +10,7 @@ android {
 
         versionCode = VERSION_CODE as int
         versionName = VERSION_NAME
-        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
+        ndk.abiFilters 'armeabi-v7a','arm64-v8a'//,'x86','x86_64'
         externalNativeBuild {
             cmake { cppFlags "" }
         }
@@ -29,17 +30,33 @@ android {
     }
 }
 
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            release(MavenPublication) {
+//                publishedGroupId = 'com.github.wwy2178'
+//                artifactId = 'gpuimage'      // 模块名称（如 gpuimage）
+//                from components.release  // 发布 release 构建产物
+//                // 配置 Maven 坐标（对应 com.github.wwy2178:gpuimage:v1.0.0）
+//                groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
+//
+//                version = '1.0.0'                   // 版本号
+//            }
+//        }
+//    }
+//}
+
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'gpuimage'
     bintrayUserOrg = 'cats-oss'
-    publishedGroupId = 'jp.co.cyberagent.android'
+    publishedGroupId = 'com.github.wwy2178'
     libraryName = 'gpuimage'
     artifact = 'gpuimage'
     libraryDescription = 'Image filters for Android with OpenGL (based on GPUImage for iOS)'
-    siteUrl = 'https://github.com/cats-oss/android-gpuimage'
-    gitUrl = 'https://github.com/cats-oss/android-gpuimage.git'
-    issueUrl = 'https://github.com/cats-oss/android-gpuimage/issues'
+    siteUrl = 'https://github.com/wwy2178/Android-GPUImage'
+    gitUrl = 'https://github.com/wwy2178/Android-GPUImage.git'
+    issueUrl = 'https://github.com/wwy2178/Android-GPUImage/issues'
     libraryVersion = VERSION_NAME
     developerId = 'cats'
     developerName = 'CATS'
@@ -54,3 +71,5 @@ ext {
 // apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
 
 apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
+
+
