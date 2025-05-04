@@ -30,47 +30,45 @@ android {
     }
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                publishedGroupId = 'com.github.wwy2178'
-//                artifactId = 'gpuimage'      // 模块名称（如 gpuimage）
-//                from components.release  // 发布 release 构建产物
-//                // 配置 Maven 坐标（对应 com.github.wwy2178:gpuimage:v1.0.0）
-//                groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
-//
-//                version = '1.0.0'                   // 版本号
-//            }
-//        }
-//    }
-//}
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'gpuimage'
-    bintrayUserOrg = 'cats-oss'
-    publishedGroupId = 'com.github.wwy2178'
-    libraryName = 'gpuimage'
-    artifact = 'gpuimage'
-    libraryDescription = 'Image filters for Android with OpenGL (based on GPUImage for iOS)'
-    siteUrl = 'https://github.com/wwy2178/Android-GPUImage'
-    gitUrl = 'https://github.com/wwy2178/Android-GPUImage.git'
-    issueUrl = 'https://github.com/wwy2178/Android-GPUImage/issues'
-    libraryVersion = VERSION_NAME
-    version = '2.1.1'
-    developerId = 'cats'
-    developerName = 'CATS'
-    developerEmail = 'dadadada.chop@gmail.com'
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release  // 发布 release 构建产物
+                // 配置 Maven 坐标（对应 com.github.wwy2178:gpuimage:v1.0.0）
+                groupId = 'com.github.wwy2178'  // 替换为你的 GitHub 用户名
+                artifactId = 'Android-GPUImage'      // 模块名称（如 gpuimage）
+                version = '2.1.1'                   // 版本号
+            }
+        }
+    }
 }
 
-// TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
-// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
-
-apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
+//ext {
+//    bintrayRepo = 'maven'
+//    bintrayName = 'gpuimage'
+//    bintrayUserOrg = 'cats-oss'
+//    publishedGroupId = 'com.github.wwy2178'
+//    libraryName = 'gpuimage'
+//    artifact = 'gpuimage'
+//    libraryDescription = 'Image filters for Android with OpenGL (based on GPUImage for iOS)'
+//    siteUrl = 'https://github.com/wwy2178/Android-GPUImage'
+//    gitUrl = 'https://github.com/wwy2178/Android-GPUImage.git'
+//    issueUrl = 'https://github.com/wwy2178/Android-GPUImage/issues'
+//    libraryVersion = VERSION_NAME
+//    version = '2.1.1'
+//    developerId = 'cats'
+//    developerName = 'CATS'
+//    developerEmail = 'dadadada.chop@gmail.com'
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
+//
+//// TODO: Close JCenter on May 1st https://jfrog.com/blog/into-the-sunset-bintray-jcenter-gocenter-and-chartcenter/
+//// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/bintray-v1.gradle'
+//// apply from: 'https://gist.githubusercontent.com/wasabeef/cf14805bee509baf7461974582f17d26/raw/install-v1.gradle'
+//
+//apply from: 'https://gist.githubusercontent.com/wasabeef/2f2ae8d97b429e7d967128125dc47854/raw/maven-central-v1.gradle'
 
 
