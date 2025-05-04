@@ -112,6 +112,9 @@ public class GPUImage {
         glSurfaceView.setRenderer(renderer);
         glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         glSurfaceView.requestRender();
+        if (surfaceCallback != null){
+            surfaceCallback.surfaceBack(glSurfaceView);
+        }
     }
 
     /**
@@ -128,6 +131,9 @@ public class GPUImage {
         glTextureView.setRenderer(renderer);
         glTextureView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         glTextureView.requestRender();
+        if (surfaceCallback != null){
+            surfaceCallback.textureBack(glTextureView);
+        }
     }
 
     /**
@@ -782,5 +788,24 @@ public class GPUImage {
 
     public GPUImageRenderer getRenderer() {
         return renderer;
+    }
+
+    public void setSurfaceTextureCallback(OnSurfaceCallback surfaceCallback){
+        this.surfaceCallback = surfaceCallback;
+    }
+
+    interface OnSurfaceCallback{
+        void textureBack(GLTextureView textureView);
+        void surfaceBack(GLSurfaceView surfaceView);
+    }
+
+    private OnSurfaceCallback surfaceCallback;
+
+    public GLTextureView glTextureView(){
+        return glTextureView;
+    }
+
+    public GLSurfaceView glSurfaceView(){
+        return glSurfaceView;
     }
 }
