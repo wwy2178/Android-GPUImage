@@ -58,6 +58,7 @@ ext {
     gitUrl = 'https://github.com/wwy2178/Android-GPUImage.git'
     issueUrl = 'https://github.com/wwy2178/Android-GPUImage/issues'
     libraryVersion = VERSION_NAME
+    version = '2.1.1'
     developerId = 'cats'
     developerName = 'CATS'
     developerEmail = 'dadadada.chop@gmail.com'
